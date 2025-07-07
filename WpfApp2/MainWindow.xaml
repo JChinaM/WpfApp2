@@ -1,0 +1,102 @@
+﻿<Window x:Class="StylishDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Скачивание статьи"
+        Height="298" Width="520"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Icon="o/icons8-пентаграмма-50.png"
+        FontFamily="Segoe UI">
+
+    <Border CornerRadius="0,0,8,8" BorderThickness="1" BorderBrush="#444">
+        <Grid Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <!-- Кастомная шапка -->
+                <RowDefinition Height="*"/>
+                <!-- Контент -->
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="/o/Без названия (1).jpg" Stretch="Fill"/>
+            </Grid.Background>
+
+            <!-- 🔷 Шапка -->
+            <Grid Grid.Row="0" Background="Gray" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Логотип -->
+                <Image Source="o/icons8-пентаграмма-50.png" Width="20" Height="20" Margin="10" VerticalAlignment="Center"/>
+
+                <!-- Заголовок -->
+                <TextBlock FontFamily="Comic Sans MS" Text="Скачивание статьи" Foreground="White" FontSize="14"
+                           VerticalAlignment="Center" Grid.Column="1" Cursor=""/>
+
+                <!-- Кнопка закрытия -->
+                <Button Content="✕"
+                        FontSize="14"
+                        Width="30"
+                        Height="30"
+                        Cursor="Hand"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderBrush="{x:Null}"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Click="CloseButton_Click"
+                        />
+            </Grid>
+
+            <!-- 🔘 Контент -->
+            <Grid Grid.Row="1" Margin="20" Cursor="">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <!-- Ссылка -->
+                <TextBlock FontFamily="Comic Sans MS" Text="Введите ссылку на сайт:" Foreground="LightGray" FontSize="14"/>
+                <TextBox FontFamily="Comic Sans MS" x:Name="UrlTextBox" Grid.Row="1" Height="30" 
+                         Background="#333333" Foreground="White" 
+                         BorderBrush="#555555" BorderThickness="1"
+                         FontSize="14" Padding="5"/>
+
+                <!-- Путь -->
+                <TextBlock FontFamily="Comic Sans MS" Text="Путь для сохранения:" Grid.Row="3"
+                           Foreground="LightGray" FontSize="14"/>
+                <DockPanel Grid.Row="4" LastChildFill="True" Height="30">
+                    <TextBox FontFamily="Comic Sans MS" x:Name="PathTextBox" 
+                             Background="#333333" Foreground="White"
+                             BorderBrush="#555555" BorderThickness="1"
+                             Padding="5"
+                             FontSize="14" IsReadOnly="True" Width="394"/>
+                    <Button FontFamily="Comic Sans MS" Style="{StaticResource RoundedButtonStyle}" Content="Обзор" Width="80" Margin="5,0,0,0"
+                            Background="#007ACC" Foreground="White" 
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Click="SelectPath_Click"/>
+                </DockPanel>
+
+                <!-- Кнопка Скачать -->
+                <Button FontFamily="Comic Sans MS" Style="{StaticResource RoundedButtonStyle}" Content="Скачать статью" Grid.Row="6" Height="40"
+                        Background="#009688" Foreground="White"
+                        FontWeight="Bold" FontSize="16"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="DownloadButton_Click"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

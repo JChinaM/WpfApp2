@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="StylishDownloader.CustomMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Хорошо"
+        Height="180" Width="400"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        FontFamily="Comic Sans MS"
+        >
+
+    <Border Background="#222" CornerRadius="8" BorderBrush="#444" BorderThickness="1" Padding="20" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="MessageTextBlock"
+                       Foreground="White"
+                       FontSize="16"
+                       TextWrapping="Wrap"
+                       Text="Сообщение"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center" Cursor="" />
+
+            <Button Content="Хорошо"
+                    Grid.Row="1"
+                    Width="100"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    Background="#009688"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="OkButton_Click"
+                    Margin="0,10,0,0"
+                    />
+        </Grid>
+    </Border>
+</Window>
