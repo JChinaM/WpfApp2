@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Скачивание статьи"
-        Height="298" Width="520"
+        Height="354" Width="520"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         WindowStyle="None"
@@ -10,7 +10,7 @@
         Icon="o/icons8-пентаграмма-50.png"
         FontFamily="Segoe UI">
 
-    <Border CornerRadius="0,0,8,8" BorderThickness="1" BorderBrush="#444">
+    <Border CornerRadius="0,0,8,8" BorderThickness="1" BorderBrush="#444" Margin="0,0,0,-85">
         <Grid Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -90,13 +90,18 @@
                 </DockPanel>
 
                 <!-- Кнопка Скачать -->
-                <Button FontFamily="Comic Sans MS" Style="{StaticResource RoundedButtonStyle}" Content="Скачать статью" Grid.Row="6" Height="40"
+                <Button FontFamily="Comic Sans MS" Style="{StaticResource RoundedButtonStyle}" Content="Скачать статью" Grid.Row="7" Height="40"
                         Background="#009688" Foreground="White"
                         FontWeight="Bold" FontSize="16"
                         BorderThickness="0"
                         Cursor="Hand"
-                        Click="DownloadButton_Click"/>
+                        Click="DownloadButton_Click" Margin="0,57,0,-47"/>
             </Grid>
+            <Label Content="Источник статьи:" HorizontalAlignment="Center" Margin="0,164,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="18" FontFamily="Comic Sans MS"/>
+            <Label Content="FAQ" HorizontalAlignment="Left" Margin="104,202,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontSize="14"/>
+            <CheckBox Name="ChekFAQ" Content="" HorizontalAlignment="Left" Margin="150,210,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+            <Label Content="SmartLab" HorizontalAlignment="Left" Margin="339,201,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontSize="14"/>
+            <CheckBox Name="ChekSmart" Content="" HorizontalAlignment="Left" Margin="413,209,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="CheckBox_Checked_1"/>
         </Grid>
     </Border>
 </Window>

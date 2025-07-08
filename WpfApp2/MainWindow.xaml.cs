@@ -31,9 +31,27 @@ namespace StylishDownloader
         {
             string url = UrlTextBox.Text.Trim();
             string outputPath = PathTextBox.Text.Trim();
+            
+            string pythonExe = "";
+            string scriptPath = "";
 
-            string pythonExe = "python";
-            string scriptPath = @"C:\Users\Михаил\Desktop\pa.py";
+            if(ChekFAQ.IsChecked == true)
+            {
+                pythonExe = "python";
+                scriptPath = @"C:\Users\Михаил\Desktop\smart.py";
+            }
+            else if(ChekSmart.IsChecked == true)
+            {
+                pythonExe = "python";
+                scriptPath = @"C:\Users\Михаил\Desktop\sm.py";
+            }
+            else
+            {
+                CustomMessageBox.Show("Выбери источник!", this);
+                return;
+            }
+
+            
 
             string arguments = $"\"{scriptPath}\" \"{url}\" \"{outputPath}\"";
 
@@ -77,6 +95,22 @@ namespace StylishDownloader
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (ChekSmart.IsChecked == true) 
+            { 
+                ChekSmart.IsChecked = false;
+            }
+        }
+
+        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
+        {
+            if (ChekFAQ.IsChecked == true)
+            {
+                ChekFAQ.IsChecked = false;
+            }
         }
     }
 }
